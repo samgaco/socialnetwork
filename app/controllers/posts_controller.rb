@@ -15,10 +15,11 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      flash[:success] = 'sent :D'
+      flash[:success] = 'success'
       redirect_to root_path
     else
-      flash[:danger] = 'oops'
+      flash[:warning] = 'something went wrong, make sure you have more than 20 characters in the content of the post, and a title'
+      redirect_to root_path
     end
   end
 
