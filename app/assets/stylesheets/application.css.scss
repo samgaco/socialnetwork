@@ -21,7 +21,7 @@
 
 /* RGB */
 $color1: rgba(3, 26, 107, 1);
-$color2: rgba(3, 56, 96, 1);
+$color2: rgb(206, 206, 206);
 $color3: rgb(93, 98, 100);
 $color4: rgba(0, 67, 133, 1);
 $color5: rgba(5, 178, 220, 1);
@@ -113,4 +113,17 @@ h2{
   .feed-send{
         width: 80%;
         margin-left: 10%;
+  }
+
+
+  .feed-posts{
+      margin-left: 10%;
+  }
+
+  
+  .post-field{
+
+    background: $color2;
+    width: 84%;
+    margin: 2%;
   }
