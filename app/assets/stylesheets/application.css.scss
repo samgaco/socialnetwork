@@ -18,9 +18,99 @@
 @import "font-awesome";
 
 
+
+/* RGB */
+$color1: rgba(3, 26, 107, 1);
+$color2: rgba(3, 56, 96, 1);
+$color3: rgb(93, 98, 100);
+$color4: rgba(0, 67, 133, 1);
+$color5: rgba(5, 178, 220, 1);
+
+
 // Header 
 
-.fas{
+.fa-dice-five{
     font-size:2rem;
     padding-top: 17%;
 }
+
+
+// Non loggeed page
+.logo{
+    
+    width: 400px;
+}
+
+.logo-container{
+
+    width: 50%;
+    padding-top: 5%;
+}
+
+.notlogged-form{
+
+    width: 500px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-bottom: 100px;
+
+}
+
+//main
+
+body{
+    background: $color3;
+}
+
+h2{
+    font-family: 'Chewy', cursive;
+    color: whitesmoke;
+
+}
+
+.form-letter{
+    font-family: 'Chewy', cursive;
+    color: whitesmoke;
+
+}
+
+
+// FORMS
+.ftext{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: rgb(226, 134, 48);
+    color: white;
+    padding: 14px 20px;
+    margin: 2px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #e0a245;
+  }
+  
+  div {
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+
+
+  // FEED
+
+  .feed-send{
+        width: 80%;
+        margin-left: 10%;
+  }

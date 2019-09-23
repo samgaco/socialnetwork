@@ -1,26 +1,39 @@
+<div class="container  justify-content-center border">
+
+
+
+<div class="feed-send">
+
 <%= form_for(@post, url: posts_url, method: 'post') do |f| %>
 
 <div class="field">
-<%= f.label :title, "Title" %> <br>
-<%= f.text_field :title %> <br>
+<%= f.label :title, "Title" ,class: "form-letter"%> <br>
+<%= f.text_field :title , class: "ftext"%> <br>
+</div>
+
+
+
+<div class="field">
+<%= f.label :content, "Content" ,class: "form-letter" %> <br>
+<%= f.text_area :content , class: "ftext"%> <br>
 </div>
 
 <div class="field">
-<%= f.label :content, "Content" %> <br>
-<%= f.text_area :content %> <br>
+<%= f.submit "Send" ,class: "form-letter" %>
 </div>
-
-<div class="field">
-<%= f.submit "Send" %>
-</div>
-
 <% end %>
+</div>
 
+
+<div class="feed-posts">
 <% @posts.each do |post| %> 
 
 <div class="post-field">
     <%= post.content %>  <br>
-    <%= User.find(post.user_id).name %>  <br>
+    <%= "By: " +  User.find(post.user_id).name %>  <br>
 </div>
 <% end %> 
 
+</div>
+
+</div>
