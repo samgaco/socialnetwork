@@ -38,7 +38,7 @@ RSpec.describe Post, type: :model do
 
     it "doesn't allow titles shorter than 3 characters" do
       post.title = 'o'
-      expect({ post.save}).to change{ post.errors.full_messages.count }
+      expect({post.save}).to change{ post.errors.full_messages.count }
     end
   end
 
