@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :post do
-    tile { "MyString" }
-    content { "MyText" }
-    user { nil }
+    title { 'Need Jap' }
+    content { 'I want to learn Japanese, any native speakers around?? Please' }
+    user_id { 1 }
   end
 end
