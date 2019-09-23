@@ -49,10 +49,19 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
-gem 'therubyracer'
+gem 'mini_racer'
 
 # devise
 gem 'devise'
+
+#BOOTSTRAP
+gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
+
+#font awesome
+gem 'font-awesome-sass', '~> 5.11.1'
+
+
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
