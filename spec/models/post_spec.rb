@@ -33,12 +33,12 @@ RSpec.describe Post, type: :model do
   context 'When submitting invalid forms' do
     it "doesn't allow content post with less than 20 characters" do
       post.content = 'a' * 19
-      expect{ post.save }.to change { post.errors.full_messages.count }
+      expect { post.save }.to change { post.errors.full_messages.count }
     end
 
     it "doesn't allow titles shorter than 3 characters" do
       post.title = 'o'
-      expect{post.save}.to change{ post.errors.full_messages.count }
+      expect { post.save }.to change { post.errors.full_messages.count }
     end
   end
 
