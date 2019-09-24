@@ -1,16 +1,7 @@
 Rails.application.routes.draw do
   resources :posts
   resources :users, only: [:index, :show]
-  devise_for :users
-  
-  
-  get 'posts/index'
-  get 'posts/show'
-  get 'posts/new'
-  get 'posts/edit'
-  post 'posts/new', to: 'post#create'
-  
-
+  devise_for :users  
 
   root to: "home#index"
   get 'home/index'
