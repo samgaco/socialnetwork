@@ -7,7 +7,7 @@ RSpec.describe Post, type: :model do
     @user = FactoryBot.create(:user)
   end
 
-  let(:post) { post = FactoryBot.create(:post)}
+  let(:post) { post = FactoryBot.create(:post) }
 
   # Unit tests
 
