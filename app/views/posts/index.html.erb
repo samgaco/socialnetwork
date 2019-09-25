@@ -1,0 +1,7 @@
+<h1>Home#index</h1>
+
+<% @posts.each do |post| %> 
+    <%= post.content %>  <br>
+    <%= User.find(post.user_id).name %>  <br>
+
+<% end %> 
