@@ -6,11 +6,8 @@ RSpec.describe Post, type: :model do
   before(:each) do
     @user = FactoryBot.create(:user)
   end
-  let(:post) do
-    @user.posts.create(title: 'I need italian',
-                       content: 'Need Italian partners, now please , send help',
-                       user_id: 1)
-  end
+
+  let(:post) { post = FactoryBot.create(:post)}
 
   # Unit tests
 

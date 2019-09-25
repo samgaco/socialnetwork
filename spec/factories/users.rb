@@ -7,5 +7,7 @@ FactoryBot.define do
     password { 'abcdefghi' }
     password_confirmation { 'abcdefghi' }
     id { 1 }
+
+
   end
 end

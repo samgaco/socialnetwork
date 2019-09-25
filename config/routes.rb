@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users  
   resources :posts
   resources :users, only: [:index, :show]
-  devise_for :users  
 
   root to: "home#index"
   get 'home/index'
