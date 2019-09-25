@@ -17,10 +17,10 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     if @post.save
       flash[:success] = 'success'
-      redirect_to root_path
+      redirect_to request.referrer
     else
       flash[:warning] = 'something went wrong, make sure you have more than 20 characters in the content of the post, and a title'
-      redirect_to root_path
+      redirect_to request.referrer
     end
   end
 
