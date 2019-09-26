@@ -14,10 +14,10 @@ class LikesController < ApplicationController
   def create
     @like = current_user.likes.new(user_id: params[:like][:user_id], post_id: params[:like][:post_id])
     if @like.save
-      redirect_back(fallback_location: root_path)
+      flash[:success] = 'Like given'
     else
-      flash[:danger] = "Can't like a post more than once"
-      redirect_back(fallback_location: root_path)
+      flash[:danger] = 'Cant like a post more than once'
     end
+    redirect_back(fallback_location: root_path)
   end
 end

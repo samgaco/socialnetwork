@@ -7,7 +7,7 @@ RSpec.describe Post, type: :model do
     @user = FactoryBot.create(:user)
   end
 
-  let(:post) { post = FactoryBot.create(:post) }
+  let(:post) { FactoryBot.create(:post) }
 
   # Unit tests
 
@@ -43,8 +43,6 @@ RSpec.describe Post, type: :model do
     us = Post.reflect_on_association(:user)
     expect(us.macro).to eq(:belongs_to)
   end
-
-
 
   describe Post do
     it 'has a valid Factory' do
