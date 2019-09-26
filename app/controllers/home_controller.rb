@@ -8,7 +8,6 @@ class HomeController < ApplicationController
     @post = Post.new
     @comment = Comment.new
     @like = Like.new
-
   end
 
   def new; end

@@ -44,7 +44,8 @@ RSpec.describe Post, type: :model do
     expect(us.macro).to eq(:belongs_to)
   end
 
-  # Integration tests
+
+
   describe Post do
     it 'has a valid Factory' do
       build(:post).should be_valid

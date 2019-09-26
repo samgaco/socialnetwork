@@ -47,6 +47,12 @@
         <%= f.submit "Comment" ,class: "button-comment" %>
     <% end %>
 
+    <%= form_for(@like, url: likes_url, method: 'post') do |ff| %>
+            <%= ff.hidden_field :user_id, :value => current_user.id %>
+            <%= ff.hidden_field :post_id, :value => post.id %>
+            <%= ff.submit post.likes.count ,class: "button-comment" %>
+    <% end %>
+
 </div>
 <% end %> 
 
