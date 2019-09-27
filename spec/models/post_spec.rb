@@ -7,7 +7,7 @@ RSpec.describe Post, type: :model do
     @user = FactoryBot.create(:user)
   end
 
-  let(:post) { post = FactoryBot.create(:post) }
+  let(:post) { FactoryBot.create(:post) }
 
   # Unit tests
 
@@ -44,7 +44,6 @@ RSpec.describe Post, type: :model do
     expect(us.macro).to eq(:belongs_to)
   end
 
-  # Integration tests
   describe Post do
     it 'has a valid Factory' do
       build(:post).should be_valid

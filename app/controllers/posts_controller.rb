@@ -17,11 +17,10 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
     if @post.save
       flash[:success] = 'success'
-      redirect_to root_path
     else
-      flash[:warning] = 'something went wrong, make sure you have more than 20 characters in the content of the post, and a title'
-      redirect_to root_path
+      flash[:warning] = 'Post should have 20+ characters in the content of the post and a title'
     end
+    redirect_back(fallback_location: root_path)
   end
 
   def edit; end

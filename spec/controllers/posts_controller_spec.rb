@@ -3,12 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
-  let(:post){  
-    @user = FactoryBot.create(:user) 
-    @post = FactoryBot.create(:post)  }
+  let!(:user) { @user = FactoryBot.create(:user) }
+
   describe 'GET #index' do
     it 'returns http success' do
-      @user = FactoryBot.create(:user)
       sign_in(@user)
       get :index
       expect(response).to have_http_status(:success)
@@ -39,37 +37,43 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe 'POST #create' do
-    it 'creates a post' do 
-      pending("is it failing because there is no logged user?")
+    it 'should not write post when not logged in' do
       post_params = FactoryBot.attributes_for(:post)
-      expect { post :create, :params => { :protocol => post_params } }.to change(Post, :count).by(1)
+      sign_in(@user)
+      expect do
+        post :create, params: { post: post_params }
+      end.to change(Post, :count).by(1)
+    end
+
+    it 'should not write post when not logged in' do
+      post_params = FactoryBot.attributes_for(:post)
+      expect do
+        post :create, params: { post: post_params }
+      end.to_not change(Post, :count)
     end
   end
 
   describe 'POST #delete' do
-    it 'deletes a post' do 
-      pending("yet to implement")
+    it 'deletes a post' do
+      pending('yet to implement')
       expect { post :destroy }.to change(Post, :count).by(-1)
     end
   end
 
   describe 'POST #delete' do
-    it 'can not delete a post not created by current user' do 
-      pending("yet to implement")
-      expect { post :destroy }.to change(Post, :count).by(-1)
+    it 'can not delete a post not created by current user' do
+      pending('yet to implement')
+      expect { post(:destroy) }.to change(Post, :count).by(-1)
     end
-
   end
 
   describe 'POST #update' do
-  
-   
   end
 
   describe 'POST #update' do
-    it 'can not update a post not created by current user' do 
-      pending("yet to implement")
-      expect{post :update }.to 
+    it 'can not update a post not created by current user' do
+      pending('yet to implement')
+      expect { post :update }.to
     end
   end
 end
