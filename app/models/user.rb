@@ -10,6 +10,11 @@ class User < ApplicationRecord
   has_many :comments
   has_many :likes
 
+  has_many :active_friends, class_name "Friendship"
+  has_many :passive_friends, class_name "Friendship"
+
+
+
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 20 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
