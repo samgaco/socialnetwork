@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
 
-        
+
   <!-- Brand -->
   <a class="navbar-brand" href="/"><i class="fas fa-dice-five"></i></a>
 
@@ -9,31 +9,83 @@
 
       <input type="text" class="form-control" placeholder="Language?">
       <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fas fa-search-location"></i></span>
-          </div>
+        <span class="input-group-text"><i class="fas fa-search-location"></i></span>
+      </div>
     </div>
   </form>
 
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-            <a class="nav-link" href="#"><%= current_user.name %></a>
 
-               
-        </li>
 
+    </li>
 
 
 
-            <!-- Dropdown -->
+
+    <!-- Dropdown -->
+
+
+
     <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-              
-            </a>
-            <div class="dropdown-menu">
-            <%= link_to('Users List', users_path, method: :get) %> <br>
-            <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-            </div>
-          </li>
-        </ul>
-        </nav>
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        <%= current_user.name %>
+
+      </a>
+      <div class="dropdown-menu">
+        <%= link_to('Users List', users_path, method: :get) %> <br>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+      </div>
+    </li>
+  </ul>
+
+
+  <!-- friendship requests -->
+
+  <ul class="navbar-nav">
+    <li class="nav-item">
+
+
+    </li>
+
+    <li class="nav-item dropdown">
+
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        <i class="fas fa-user-friends"></i>
+        <% if current_user.passive_friendships.exists? %>
+        <i class="fas fa-exclamation-circle text-danger"></i>
+        <% end %>
+
+      </a>
+
+      <div class="dropdown-menu">
+        <% if current_user.passive_friendships.where("status = (?)", false).exists? %>
+            <% current_user.passive_friendships.each do |requests| %>
+            <%= requests.user.name %> <i class="fas fa-exclamation-circle text-danger"></i> <br>
+           
+
+
+            <%= form_for(Friendship.find_by(friend_id: current_user.id), method: "post") do |f| %>
+            <%= f.hidden_field :status, :value => true %>
+            <%= f.hidden_field :req_id, :value => requests.id %>
+            <%= f.submit "Accept", action: "update"  %>
+            <% end %>
+
+
+           
+            <% end %>
+
+        <% else %>
+
+         <p> No language partner requests</p>
+
+        <% end %>
+
+
+      </div>
+
+
+    </li>
+  </ul>
+</nav>

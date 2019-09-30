@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :comments
   resources :likes
+  resources :friendships
+
+  post 'friendships/:id', to: 'friendships#update'
 
   root to: "home#index"
   get 'home/index'

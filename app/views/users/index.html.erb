@@ -1,8 +1,27 @@
+
 <h2>List of registered users</h2>
-<% @users.each do |user| %> 
+<% @users.each do |user| %>
 
 <div class="field-user">
-    <%= user.name %>
+    
+    <% if (!current_user.passive_friendships.find_by(friend_id: user.id).nil? or !current_user.active_friendships.find_by(user_id: user.id).nil? )%>
+    <%= user.name %> <i class="fas fa-users text-success"></i>
+    <% else %> 
+    <%= user.name %> 
+    <% end %>
+
+    <% if (current_user.id != user.id and !@friendships.already(current_user.id, user.id).exists?)  %>
+
+    <%= form_for(@friendship, url: friendships_path, method: "post") do |f| %>
+
+    <%= f.hidden_field :friend_id, :value => user.id %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :status, :value => false %>
+    <%= f.submit "Resquest language partner" %>
+    <% end %>
+
+    <% end %>
+
 </div>
 
 <%end%>
