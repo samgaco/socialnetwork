@@ -7,16 +7,10 @@ class HomeController < ApplicationController
     @comments = Comment.all
     @post = Post.new
     @comment = Comment.new
-    @like = Like.new    
+    @like = Like.new
   end
 
   def new; end
 
-  def edit
-    
-
-  end
-
-
-
+  def edit; end
 end
