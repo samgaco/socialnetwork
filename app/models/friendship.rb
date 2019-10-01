@@ -1,8 +1,12 @@
 class Friendship < ApplicationRecord
+    #associations
     belongs_to :user
     belongs_to :friend, :class_name => "User"
 
+    #validations
+    validates :status, presence: true
 
+    #scopes
     scope :already, ->(user, friend) { where("user_id = (?)", user).where("friend_id = (?)", friend) }
     scope :invitation_requests, ->(user){where("friend_id = (?)", user).where("status = (?)", false)}
     scope :invitation_sent, ->(user){where("user_id = (?)", user).where("status = (?)", false)}

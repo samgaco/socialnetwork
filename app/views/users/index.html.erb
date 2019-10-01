@@ -1,14 +1,22 @@
 
 <h2>List of registered users</h2>
 <% @users.each do |user| %>
+<% if current_user.id != user.id %>
 
 <div class="field-user">
     
-    <% if (!current_user.passive_friendships.find_by(friend_id: user.id).nil? or !current_user.active_friendships.find_by(user_id: user.id).nil? )%>
+    <% if (current_user.friendships.where('user_id = :id OR friend_id = :id', id: user.id).where("status = (?)", true).exists? )%>
     <%= user.name %> <i class="fas fa-users text-success"></i>
-    <% else %> 
-    <%= user.name %> 
     <% end %>
+
+    <% if (current_user.friendships.where('friend_id = :id', id: user.id).where("status = (?)", false).exists? )%>
+    <%= user.name %> <p> Pending </p>
+    <% end %>
+
+    <% if (current_user.friendships.where('user_id = :id', id: user.id).where("status = (?)", false).exists? )%>
+    <%= user.name %> <p> Accept? </p>
+    <% end %>
+
 
     <% if (current_user.id != user.id and !@friendships.already(current_user.id, user.id).exists?)  %>
 
@@ -23,5 +31,6 @@
     <% end %>
 
 </div>
+<% end %>
 
 <%end%>
