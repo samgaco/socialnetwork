@@ -6,13 +6,13 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    fpar = params[:friendship]
-    @friendship = Friendship.new(status: fpar[:status], user_id: fpar[:user_id], friend_id: fpar[:friend_id])
+    @friendship = Friendship.new(friendship_params)
+
     if @friendship.save
       flash[:success] = 'Invitation sent'
     else
       flash[:danger] = 'Something went wrong :('
-    end
+     end
     redirect_back(fallback_location: root_path)
   end
 
@@ -39,6 +39,6 @@ class FriendshipsController < ApplicationController
   private
 
   def friendship_params
-    params.require(:post).permit(:status)
+    params.require(:friendship).permit(:friend_id, :user_id, :status)
   end
 end

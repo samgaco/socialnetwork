@@ -6,21 +6,21 @@
 
     <% if (current_user.friendships.where('user_id = :id OR friend_id = :id', id: user.id).where("status = (?)", true).exists? )%>
     <%= user.name %> <i class="fas fa-users text-success"></i>
-    <% end %>
+    <% else %>
 
     <% if (current_user.friendships.where('friend_id = :id', id: user.id).where("status = (?)", false).exists? )%>
-    <%= user.name %> <p> Pending </p>
+    <%= user.name %> <p> Friend request is pending. </p>
     <% end %>
 
     <% if (current_user.friendships.where('user_id = :id', id: user.id).where("status = (?)", false).exists? )%>
-    <%= user.name %> <p> Accept? </p>
-    <% end %>
+    <%= user.name %> <p> has sent you a friend request. </p>
+    <% else %>
 
 
     <% if (current_user.id != user.id and !@friendships.already(current_user.id, user.id).exists?)  %>
 
     <%= form_for(@friendship, url: friendships_path, method: "post") do |f| %>
-
+    <%= user.name %>
     <%= f.hidden_field :friend_id, :value => user.id %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.hidden_field :status, :value => false %>
@@ -28,6 +28,9 @@
     <% end %>
 
     <% end %>
+    <% end %>
+    <% end %>
+
 
 </div>
 <% end %>

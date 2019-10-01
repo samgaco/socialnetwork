@@ -6,7 +6,7 @@ class Friendship < ApplicationRecord
   belongs_to :friend, class_name: 'User'
 
   # validations
-  validates :status, presence: true
+  validates :status, inclusion: { in: [true, false] }
 
   # scopes
   scope :already, ->(user, friend) { where('user_id = (?)', user).where('friend_id = (?)', friend) }
