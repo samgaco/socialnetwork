@@ -6,6 +6,8 @@ FactoryBot.define do
 
     trait :accepted do
       status { true }
+      friend_id { 2 }
+      user_id { 1 }
     end
 
     trait :pending do
