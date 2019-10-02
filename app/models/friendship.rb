@@ -15,5 +15,5 @@ class Friendship < ApplicationRecord
   scope :friends_active, ->(user) { where('status = (?) = ', true).where('user_id = (?)', user) }
   scope :friends_passive, ->(user) { where('status = (?) = ', true).where('friend_id = (?)', user) }
   scope :act_pas_friends?, ->(user, friend) { where('user_id = (?)', user).where('friend_id = (?)', friend).where('status=(?)', true) }
-  scope :accepted_friendships, ->(user) { where('user_id = :id OR friend_id = :id', id: user.id).where('status = (?)', true) }
+  scope :accepted_friendships, ->(user, friend) { where('user_id = :id and friend_id = :id2 OR user_id = :id2 and friend_id = :id', id: user.id, id2: friend.id).where('status = (?)', true) }
 end

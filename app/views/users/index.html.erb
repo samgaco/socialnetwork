@@ -4,7 +4,7 @@
 
 <div class="field-user">
 
-    <% if (Friendship.accepted_friendships(current_user).exists? )%>
+    <% if (Friendship.accepted_friendships(current_user, user).exists? )%>
     <%= user.name %> <i class="fas fa-users text-success"></i>
     <% else %>
 
