@@ -6,7 +6,7 @@
 
     <% if (Friendship.accepted_friendships(current_user).exists? )%>
     <%= user.name %> <i class="fas fa-users text-success"></i>
-    <% end %>
+    <% else %>
 
     <% if (Friendship.invitation_sent(current_user, user).exists? )%>
     <%= user.name %> <p> Friend request is pending. </p>
@@ -17,8 +17,7 @@
     <% end %>
 
 
-    <% if (current_user.id != user.id and !@friendships.already(current_user.id, user.id).exists?)  %>
-
+    <% if (!Friendship.invitation_requests(current_user,user).exists? and !Friendship.invitation_sent(current_user, user).exists? )  %>
     <%= form_for(@friendship, url: friendships_path, method: "post") do |f| %>
     <%= user.name %>
     <%= f.hidden_field :friend_id, :value => user.id %>
@@ -27,6 +26,8 @@
     <%= f.submit "Resquest language partner" %>
     <% end %>
     <% end %>
+    <% end %>
+
 
 
 
