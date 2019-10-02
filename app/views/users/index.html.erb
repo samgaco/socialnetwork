@@ -4,17 +4,17 @@
 
 <div class="field-user">
 
-    <% if (current_user.friendships.where('user_id = :id OR friend_id = :id', id: user.id).where("status = (?)", true).exists? )%>
+    <% if (Friendship.accepted_friendships(current_user).exists? )%>
     <%= user.name %> <i class="fas fa-users text-success"></i>
-    <% else %>
+    <% end %>
 
-    <% if (current_user.friendships.where('friend_id = :id', id: user.id).where("status = (?)", false).exists? )%>
+    <% if (Friendship.invitation_sent(current_user, user).exists? )%>
     <%= user.name %> <p> Friend request is pending. </p>
     <% end %>
 
-    <% if (current_user.friendships.where('user_id = :id', id: user.id).where("status = (?)", false).exists? )%>
+    <% if (Friendship.invitation_requests(current_user,user).exists? )%>
     <%= user.name %> <p> has sent you a friend request. </p>
-    <% else %>
+    <% end %>
 
 
     <% if (current_user.id != user.id and !@friendships.already(current_user.id, user.id).exists?)  %>
@@ -26,10 +26,8 @@
     <%= f.hidden_field :status, :value => false %>
     <%= f.submit "Resquest language partner" %>
     <% end %>
+    <% end %>
 
-    <% end %>
-    <% end %>
-    <% end %>
 
 
 </div>
