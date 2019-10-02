@@ -28,7 +28,7 @@
 
         <div class="post-field">
             <%= post.content %> <br>
-            <%= "By: " +  User.find(post.user_id).name %> <br>
+            <%= "By: " +  post.user.name %> <br>
 
             <% post.comments.each do |comment| %>
 
