@@ -1,0 +1,19 @@
+<div class="feed-send">
+
+    <%= form_for(@post, url: posts_url, method: 'post') do |f| %>
+
+    <div class="field">
+        <%= f.label :title, "Title" ,class: "form-letter"%> <br>
+        <%= f.text_field :title , class: "ftext"%> <br>
+    </div>
+
+    <div class="field">
+        <%= f.label :content, "Content" ,class: "form-letter" %> <br>
+        <%= f.text_area :content , class: "ftext"%> <br>
+    </div>
+
+    <div class="field">
+        <%= f.submit "Send" ,class: "form-letter" %>
+    </div>
+    <% end %>
+</div>
