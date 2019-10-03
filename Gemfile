@@ -48,7 +48,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # omniauth
 gem 'mini_racer'
-gem 'omniauth'
+gem 'omniauth', git: 'https://github.com/intridea/omniauth.git'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 
