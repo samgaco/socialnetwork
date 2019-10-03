@@ -10,17 +10,17 @@ RSpec.describe FriendshipsController, type: :controller do
     pending('not working')
 
     it 'should not write post when not logged in' do
-      friendship = { :friendship => { :friend_id => user2.id, :user_id => user.id, :status => true }}
+      friendship = { friendship: { friend_id: user2.id, user_id: user.id, status: true } }
       expect do
-        post(:create,params: friendship)
+        post(:create, params: friendship)
       end.to change(Friendship, :count)
     end
 
     it 'should  write post when  logged in' do
-      friendship = { :friendship => { :friend_id => user2.id, :user_id => user.id, :status => true }}
+      friendship = { friendship: { friend_id: user2.id, user_id: user.id, status: true } }
       sign_in(user)
       expect do
-        post(:create,params: friendship)
+        post(:create, params: friendship)
       end.to change(user.active_friendships, :count).by(1)
     end
   end

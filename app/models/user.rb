@@ -18,17 +18,16 @@ class User < ApplicationRecord
   }, class_name: :Friendship, dependent: :destroy
 
   has_many :friendships_accepted, lambda { |user|
-    unscope(:where).where('user_id = :id OR friend_id = :id', id: user.id).where("status = (?)", true)
+    unscope(:where).where('user_id = :id OR friend_id = :id', id: user.id).where('status = (?)', true)
   }, class_name: :Friendship, dependent: :destroy
 
   has_many :friendships_rec_pending, lambda { |user|
-    unscope(:where).where('friend_id = :id', id: user.id).where("status = (?)", false)
+    unscope(:where).where('friend_id = :id', id: user.id).where('status = (?)', false)
   }, class_name: :Friendship, dependent: :destroy
 
   has_many :friendships_send_pending, lambda { |user|
-    unscope(:where).where('user_id = :id', id: user.id).where("status = (?)", false)
+    unscope(:where).where('user_id = :id', id: user.id).where('status = (?)', false)
   }, class_name: :Friendship, dependent: :destroy
-
 
   # validations
   before_save { self.email = email.downcase }

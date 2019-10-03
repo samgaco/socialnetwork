@@ -38,10 +38,10 @@ RSpec.describe PostsController, type: :controller do
 
   describe 'POST #create' do
     it 'should not write post when not logged in' do
-      post = {:post => {:title=> "greaat", :content => "a" * 50}}
+      post = { post: { title: 'greaat', content: 'a' * 50 } }
       sign_in(@user)
       expect do
-        post(:create,params: post)
+        post(:create, params: post)
       end.to change(Post, :count).by(1)
     end
 
