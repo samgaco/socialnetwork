@@ -2,60 +2,62 @@
 
 
 
-<div class="feed-send">
+    <div class="feed-send">
 
-<%= form_for(@post, url: posts_url, method: 'post') do |f| %>
+        <%= form_for(@post, url: posts_url, method: 'post') do |f| %>
 
-<div class="field">
-<%= f.label :title, "Title" ,class: "form-letter"%> <br>
-<%= f.text_field :title , class: "ftext"%> <br>
-</div>
+        <div class="field">
+            <%= f.label :title, "Title" ,class: "form-letter"%> <br>
+            <%= f.text_field :title , class: "ftext"%> <br>
+        </div>
 
-<div class="field">
-<%= f.label :content, "Content" ,class: "form-letter" %> <br>
-<%= f.text_area :content , class: "ftext"%> <br>
-</div>
+        <div class="field">
+            <%= f.label :content, "Content" ,class: "form-letter" %> <br>
+            <%= f.text_area :content , class: "ftext"%> <br>
+        </div>
 
-<div class="field">
-<%= f.submit "Send" ,class: "form-letter" %>
-</div>
-<% end %>
-</div>
-
-
-<div class="feed-posts">
-<% @posts.each do |post| %> 
-
-<div class="post-field">
-    <%= post.content %>  <br>
-    <%= "By: " +  User.find(post.user_id).name %>  <br>
-
-    <% post.comments.each do |comment| %>
+        <div class="field">
+            <%= f.submit "Send" ,class: "form-letter" %>
+        </div>
+        <% end %>
+    </div>
 
 
-    <%= comment.text %> <br>
-    <%="By:" + comment.user.name %> <br>
+    <div class="feed-posts">
+        <% @posts.each do |post| %>
+
+        <div class="post-field">
+            <%= post.content %> <br>
+            <%= "By: " +  post.user.name %> <br>
+
+            <% post.comments.each do |comment| %>
+
+
+            <%= comment.text %> <br>
+            <%="By:" + comment.user.name %> <br>
 
 
 
-    <% end %>
+            <% end %>
 
-    <%= form_for(@comment, url: comments_url, method: 'post') do |f| %>
-        <%= f.text_area :text , class: "ftext"%> <br>
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.hidden_field :post_id, :value => post.id %>
-        <%= f.submit "Comment" ,class: "button-comment" %>
-    <% end %>
+            <%= form_for(@comment, url: comments_url, method: 'post') do |f| %>
+            <%= f.text_area :text , class: "ftext"%> <br>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= f.hidden_field :post_id, :value => post.id %>
+            <%= f.submit "Comment" ,class: "button-comment" %>
+            <% end %>
 
-    <%= form_for(@like, url: likes_url, method: 'post') do |ff| %>
+            <%= form_for(@like, url: likes_url, method: 'post') do |ff| %>
             <%= ff.hidden_field :user_id, :value => current_user.id %>
             <%= ff.hidden_field :post_id, :value => post.id %>
             <%= ff.submit post.likes.count ,class: "button-comment" %>
-    <% end %>
+            <% end %>
 
-</div>
-<% end %> 
 
-</div>
+
+        </div>
+        <% end %>
+
+    </div>
 
 </div>

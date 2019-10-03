@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_25_154311) do
+ActiveRecord::Schema.define(version: 2019_10_02_101800) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2019_09_25_154311) do
     t.text "text"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.boolean "status"
+    t.integer "user_id"
+    t.integer "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index "GREATEST(user_id, friend_id), LEAST(user_id, friend_id)", name: "index_requests_on_interchangable_sender_id_and_receiver_id", unique: true
+    t.index "LEAST(user_id, friend_id), GREATEST(user_id, friend_id)", name: "index_requests_on_interchangable_receiver_id_and_sender_id", unique: true
   end
 
   create_table "likes", force: :cascade do |t|
