@@ -1,6 +1,8 @@
 <div class="feed-posts">
     <% @posts.each do |post| %>
 
+    <% if Friendship.accepted_friendships(current_user, post.user).exists? or post.user == current_user %>
+
     <div class="post-field">
         <%= post.content %> <br>
         <%= "By: " +  post.user.name %> <br>
@@ -28,9 +30,8 @@
         <%= ff.submit post.likes.count ,class: "button-comment" %>
         <% end %>
 
-
-
     </div>
     <% end %>
 
+    <% end %>
 </div>
