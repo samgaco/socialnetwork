@@ -265,7 +265,8 @@ Devise.setup do |config|
   info_fields: 'email',
   secure_image_url: true,
   image_size: 'large',
-  token_params: { parse: :json }
+  token_params: { parse: :json },
+  callback_url: 'https://pentalingo.herokuapp.com/users/auth/facebook/callback'
 
   # config.warden do |manager|
   #   manager.intercept_401 = false
