@@ -255,19 +255,17 @@ Devise.setup do |config|
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
-  config.assets.initialize_on_precompile = false
+  # config.assets.initialize_on_precompile = false
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   config.omniauth :facebook, '2393418607536464', '84b66956b12ef882dff9407ae37ffb5e', 
-  scope: 'email', info_fields: 'email',
-  info_fields: 'email,first_name,last_name',
+  scope: 'email',
+  info_fields: 'email',
   secure_image_url: true,
   image_size: 'large',
   token_params: { parse: :json }
-  callback_url: "https://pentalingo.herokuapp.com/users/auth/facebook/callback"
-
 
   # config.warden do |manager|
   #   manager.intercept_401 = false
