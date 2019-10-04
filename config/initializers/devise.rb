@@ -260,10 +260,12 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
 
+
+
   config.omniauth :facebook, "app id", "app secret", scope: 'email', info_fields: 'email'
 
   config.omniauth :facebook, '2393418607536464', '84b66956b12ef882dff9407ae37ffb5e', scope: 'email', info_fields: 'email',
-  callback_url: "https://pentalingo.herokuapp.com/users/auth/facebook/callback"
+  callback_url: "https://pentalingo.herokuapp.com/users/auth/facebook/callback?close"
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
