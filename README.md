@@ -9,8 +9,6 @@
   <p align="center">
     A Ruby on Rails application
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
     <br />
     <a href="https://pentalingo.herokuapp.com">View Demo</a>
     ·
@@ -19,3 +17,20 @@
     <a href="https://github.com/samgaco/socialnetwork/issues">Request Feature</a>
   </p>
 </p>
+
+
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+### Built With
+* [RubyonRails](https://rubyonrails.org/)
+
