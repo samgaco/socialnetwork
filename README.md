@@ -31,7 +31,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Pentalingo is a web application designed with learning purposes developed while studying web development at [microverse](http://microverse.com/). It's aim is to create a platform that encourages people to make language exchanges, a social media platform in which you can connect and set times to have language exchange meetings. 
+Pentalingo is a web application designed with learning purposes developed while studying web development at [microverse](http://microverse.com/). It's aim is to create a social media platform that encourages people to make language exchanges.
 
 The technical goals of the project were to be able to emulate some of the functionalities that facebook has implemented, such as allowing the users to have friends in a symmetrical irreflexive way, accept & send friend requests, submit posts and see the posts of their friends and comment on the posts of their friends.
 
