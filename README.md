@@ -1,24 +1,21 @@
-# README
+<br />
+<p align="center">
+  <a href="https://pentalingo.herokuapp.com">
+    <img src="app/assets/images/pentalogo.png" alt="Logo" width="80" height="80">
+  </a>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  <h3 align="center">Pentalingo</h3>
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  <p align="center">
+    A Ruby on Rails application
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://pentalingo.herokuapp.com">View Demo</a>
+    ·
+    <a href="https://github.com/samgaco/socialnetwork/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/samgaco/socialnetwork/issues">Request Feature</a>
+  </p>
+</p>
