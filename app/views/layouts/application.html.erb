@@ -13,6 +13,10 @@
 
   </head>
   <body>
+      <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=2393418607536464&autoLogAppEvents=1"></script>
+
+      
       <% if user_signed_in? %>
 
     <%= render "layouts/header" %>
@@ -20,7 +24,6 @@
     <% flash.each do |message_type, message| %>
     <div class="alert alert-<%=message_type%>"> <%=message%> </div>
     <%end%>
-
     <div class="container">
       <%= yield %>
     </div>
