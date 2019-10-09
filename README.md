@@ -1,24 +1,40 @@
-# README
+<br />
+<p align="center">
+  <a href="https://pentalingo.herokuapp.com">
+    <img src="app/assets/images/pentalogo.png" alt="Logo" width="80" height="80">
+  </a>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+  <h3 align="center">Pentalingo</h3>
 
-Things you may want to cover:
+  <p align="center">
+    A Ruby on Rails application
+    <br />
+    <br />
+    <a href="https://pentalingo.herokuapp.com">View Demo</a>
+    ·
+    <a href="https://github.com/samgaco/socialnetwork/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/samgaco/socialnetwork/issues">Request Feature</a>
+  </p>
+</p>
 
-* Ruby version
 
-* System dependencies
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
 
-* Configuration
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-* Deployment instructions
+Pentalingo is a web application designed with learning purposes developed while studying web development at [microverse](http://microverse.org/). It's aim is to create a social media platform that encourages people to make language exchanges.
 
-* ...
+The technical goals of the project were to be able to emulate some of the functionalities that facebook has implemented, such as allowing the users to have friends in a symmetrical irreflexive way, accept & send friend requests, submit posts and see the posts of their friends and comment on the posts of their friends.
+
+### Built With
+* [RubyonRails](https://rubyonrails.org/)
+

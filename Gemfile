@@ -50,7 +50,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'mini_racer'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'omniauth-github'
 
 # devise
 gem 'devise'
