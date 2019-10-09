@@ -12,6 +12,8 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
+  ## Pending tests
+
   describe 'GET #show' do
     it 'returns http success' do
       pending('show not implemented still')

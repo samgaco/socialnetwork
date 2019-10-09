@@ -36,7 +36,7 @@ RSpec.describe User, type: :model do
 
     it "doesn't allow emails longer than 255 characters" do
       user.email = 'a' * 256
-      expect { user.save }.to change { user.errors.full_messages.count }.by(2)
+      expect { user.save }.to change { user.errors.full_messages.count }
     end
 
     it 'does not allow incorrect emails' do

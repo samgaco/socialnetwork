@@ -13,25 +13,9 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
-  describe 'GET #show' do
-    it 'returns http success' do
-      pending('still not implemented')
-      get :show
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe 'GET #new' do
     it 'returns http success' do
       get :new
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe 'GET #edit' do
-    it 'returns http success' do
-      pending('still not implemented')
-      get :edit
       expect(response).to have_http_status(:success)
     end
   end
@@ -53,6 +37,24 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
+  ### Pending test (Remaining Crud operations not requested for the project)
+
+  describe 'GET #edit' do
+    it 'returns http success' do
+      pending('still not implemented')
+      get :edit
+      expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'GET #show' do
+    it 'returns http success' do
+      pending('still not implemented')
+      get :show
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe 'POST #delete' do
     it 'deletes a post' do
       pending('yet to implement')
@@ -65,9 +67,6 @@ RSpec.describe PostsController, type: :controller do
       pending('yet to implement')
       expect { post(:destroy) }.to change(Post, :count).by(-1)
     end
-  end
-
-  describe 'POST #update' do
   end
 
   describe 'POST #update' do

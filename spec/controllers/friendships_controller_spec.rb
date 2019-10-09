@@ -7,8 +7,6 @@ RSpec.describe FriendshipsController, type: :controller do
   let(:user2) { User.create(name: 'juan2', email: 'bolo2@g.com', password: '123456', password_confirmation: '123456') }
 
   describe 'POST #index' do
-    pending('not working')
-
     it 'should not write post when not logged in' do
       friendship = { friendship: { friend_id: user2.id, user_id: user.id, status: true } }
       expect do
