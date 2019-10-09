@@ -24,6 +24,8 @@
 
 * [About the Project](#about-the-project)
   * [Built With](#built-with)
+* [Deployment](#Deployment)
+* [Contact](#Contact)
 
 
 
