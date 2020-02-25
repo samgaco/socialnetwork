@@ -18,6 +18,8 @@
   </p>
 </p>
 
+  <img align="center" src="docs/images/main.png" alt="Logo">
+
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
