@@ -18,7 +18,7 @@
   </p>
 </p>
 
-  <img align="center" src="docs/images/main.png" alt="Logo">
+  <img align="center" src="app/assets/images/main.png" alt="Logo">
 
 
 <!-- TABLE OF CONTENTS -->
